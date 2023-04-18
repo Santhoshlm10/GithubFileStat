@@ -12258,6 +12258,11 @@ export const file_types = {
       "Text file"
     ]
   },
+  "SAMPLE": {
+    "descriptions": [
+      "an audio file created by Godot Engine"
+    ]
+  },
   "SAN": {
     "descriptions": [
       "LucasArts' SMUSH/INSANE animation"

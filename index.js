@@ -3,6 +3,15 @@ import path from "path";
 import { typeObjectMaintainer } from "./utils/maintainer/type_objects.js";
 import { file_types } from "./utils/file/file_types.js";
 
+// init values
+function Program(filetype,count,percentage,about){
+    this.filetype = filetype;
+    this.count = count;
+    this.percentage = percentage;
+    this.about = about;
+}
+let temp_list = []
+
 async function extractFiles(startPath) {
     if (!fs.existsSync(startPath)) {
         throw new Error("Directory doesnot exist")
@@ -21,12 +30,21 @@ async function extractFiles(startPath) {
     };
 };
 
-const a = extractFiles("/home/santhosh/Desktop/Motovolt/ev.app/djangoAdminPanel");
+const a = extractFiles(process.argv[2]);
 let returned_file_types = typeObjectMaintainer.return_type_object()
+let total_files = 0
+Object.keys(returned_file_types).map((item) => {
+     total_files += returned_file_types[item]
+})
+
+
+
 for (const key in returned_file_types) {
     let filter_file_extension = key.replace(".", "").toUpperCase()
     if (file_types[filter_file_extension]) {
-        console.log(`File Type:${key} || Count:${returned_file_types[key]} || File Name: ${file_types[filter_file_extension]["descriptions"]}`);
+        temp_list.push(new Program(key,returned_file_types[key],parseInt(returned_file_types[key]/total_files * 100)+"%",file_types[filter_file_extension]["descriptions"][0]))
     }
 }
+console.log(`${total_files} files found in directory ${process.argv[2]}`)
+console.table(temp_list)
 
