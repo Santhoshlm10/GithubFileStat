@@ -4,7 +4,7 @@
 
 ### Installation
 ```sh
-npm install githubfilestat -g
+sudo npm install githubfilestat -g
 ```
 
 ### Usage
@@ -13,7 +13,7 @@ ghfs <YOUR_PATH>
 ```
 
 ### Example
-![github-small](https://github.com/Santhoshlm10/FireChat-Python/blob/main/images/MainApp1.png)
+![github-small](https://github.com/Santhoshlm10/GithubFileStat/blob/main/assets/ghfs.png)
 
 ### Contributing
 
