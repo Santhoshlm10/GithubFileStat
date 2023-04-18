@@ -33,6 +33,8 @@ async function extractFiles(startPath) {
 const a = extractFiles(process.argv[2]);
 let returned_file_types = typeObjectMaintainer.return_type_object()
 let total_files = 0
+let unknown_file_types = 0
+let files_finished = 0
 Object.keys(returned_file_types).map((item) => {
      total_files += returned_file_types[item]
 })
@@ -43,8 +45,13 @@ for (const key in returned_file_types) {
     let filter_file_extension = key.replace(".", "").toUpperCase()
     if (file_types[filter_file_extension]) {
         temp_list.push(new Program(key,returned_file_types[key],parseInt(returned_file_types[key]/total_files * 100)+"%",file_types[filter_file_extension]["descriptions"][0]))
+            files_finished = files_finished + returned_file_types[key] 
+    }else{
+        unknown_file_types = unknown_file_types + 1
     }
 }
 console.log(`${total_files} files found in directory ${process.argv[2]}`)
+console.log(`${files_finished} analyzed out ${total_files} files,${total_files - files_finished} file types are unknown`)
+console.log(`Unkown file type count: ${unknown_file_types}`)
 console.table(temp_list)
 
