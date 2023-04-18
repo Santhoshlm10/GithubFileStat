@@ -7178,6 +7178,11 @@ export const file_types = {
       "JavaServer Pages"
     ]
   },
+  "JSX": {
+    "descriptions": [
+      "Javascript XML file"
+    ]
+  },
   "JTF": {
     "descriptions": [
       "Fax",
@@ -14478,6 +14483,11 @@ export const file_types = {
   "TSV": {
     "descriptions": [
       "Tab Separated Values"
+    ]
+  },
+  "TSX": {
+    "descriptions": [
+      "Typescript XML file"
     ]
   },
   "TTE": {
