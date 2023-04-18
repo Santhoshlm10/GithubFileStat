@@ -61,6 +61,6 @@ for (const key in returned_file_types) {
 }
 console.log(`${total_files} files found in directory ${process.argv[2]}`)
 console.log(`${files_finished} analyzed out ${total_files} files,${total_files - files_finished} file types are unknown`)
-console.log(`Unkown file type count: ${unknown_file_types_count} includes ${[...new Set(unknown_file_types)]}`)
+console.log(`Unkown file type count: ${unknown_file_types_count} ${unknown_file_types_count == 0 ? "" : `includes ${[...new Set(unknown_file_types)]}`}`)
 console.table(temp_list)
 
