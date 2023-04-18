@@ -1,6 +1,6 @@
 {
   "name": "githubfilestat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Get distribution of file type like github",
   "main": "./bin/index.js",
