@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import fs from "fs";
 import path from "path";
 import { typeObjectMaintainer } from "../utils/maintainer/type_objects.js";
