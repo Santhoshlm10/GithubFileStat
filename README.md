@@ -16,10 +16,13 @@ ghfs <YOUR_PATH>
 ```sh
 ghfs <YOUR_PATH>
 ```
-### Output
+### Contributing
+
+###### If you find a bug or have a feature request, please open an issue on the GitHub repository. Pull requests are also welcome.
 
 ### License
 
-MIT
+###### GitHubFileStat is licensed under the MIT license. See LICENSE for more information.
+
 
 **Free Software, Hell Yeah!**
