@@ -6,11 +6,11 @@ import { typeObjectMaintainer } from "../utils/maintainer/type_objects.js";
 import { file_types } from "../utils/file/file_types.js";
 
 // init values
-function Program(filetype, count, percentage, about) {
+function Program(filetype, count, percentage, description) {
     this.filetype = filetype;
     this.count = count;
     this.percentage = percentage;
-    this.about = about;
+    this.description = description;
 }
 let temp_list = []
 
@@ -48,12 +48,12 @@ for (const key in returned_file_types) {
     let filter_file_extension = key.replace(".", "").toUpperCase()
     // check for the upper case key value
     if (file_types[filter_file_extension]) {
-        temp_list.push(new Program(key, returned_file_types[key], parseInt(returned_file_types[key] / total_files * 100) + "%", file_types[filter_file_extension]["descriptions"].toString()))
+        temp_list.push(new Program(key, returned_file_types[key], parseFloat(returned_file_types[key] / total_files * 100).toFixed(2) + "%", file_types[filter_file_extension]["descriptions"].toString()))
         files_finished = files_finished + returned_file_types[key]
     } else {
         // automatically checks for lower key value
         if (file_types[key]) {
-            temp_list.push(new Program(key, returned_file_types[key], parseInt(returned_file_types[key] / total_files * 100) + "%", file_types[key]["descriptions"].toString()))
+            temp_list.push(new Program(key, returned_file_types[key], parseFloat(returned_file_types[key] / total_files * 100).toFixed(2) + "%", file_types[key]["descriptions"].toString()))
             files_finished = files_finished + returned_file_types[key]
         } else {
             unknown_file_types_count = unknown_file_types_count + 1
@@ -62,7 +62,7 @@ for (const key in returned_file_types) {
     }
 }
 console.log(`${total_files} files found in directory ${process.argv[2]}`)
-console.log(`${files_finished} analyzed out ${total_files} files,${total_files - files_finished} file types are unknown`)
+console.log(`${files_finished} analyzed out of ${total_files} files,${total_files - files_finished} file types are unknown`)
 console.log(`Unkown file type count: ${unknown_file_types_count} ${unknown_file_types_count == 0 ? "" : `includes ${[...new Set(unknown_file_types)]}`}`)
 console.table(temp_list)
 
