@@ -8,8 +8,15 @@ sudo npm install githubfilestat -g
 ```
 
 ### Usage
+
+#### Get file stats
 ```sh
 ghfs <YOUR_PATH>
+```
+
+#### Find any file in current path
+```sh
+ghfs find <FILE_NAME>
 ```
 
 ### Example
