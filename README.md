@@ -30,5 +30,3 @@ ghfs find <FILE_NAME>
 
 #### GitHubFileStat is licensed under the MIT license. See LICENSE for more information.
 
-
-**Free Software, Hell Yeah!**
